@@ -26,6 +26,7 @@
 
 int kieruneka = 0, kierunekb = 0, kierunekc = 0;
 int kroki = 0;
+bool czy_mam_odpowiedziec = 0;
 
 String a;
 int kroka = 0, krokb = 0, krokc = 0;
@@ -62,6 +63,8 @@ void loop() {
 
     sscanf(a.c_str(),"a %d b %d c %d", &kroka, &krokb, &krokc);
 
+    czy_mam_odpowiedziec = 1;
+
     kieruneka = kroka < 0; // sprawdzanie czy jest minus czy nie i uzaleznienie od tego kierunku
     kierunekb = krokb < 0;
     kierunekc = krokc < 0;
@@ -73,10 +76,6 @@ void loop() {
     kroka = abs(kroka); // gdyby minus to zamien ilisc krokow na plus
     krokb = abs(krokb);
     krokc = abs(krokc);
-      
-    Serial.println(kroka);
-    Serial.println(krokb);
-    Serial.println(krokc);
   } 
 
   if(!digitalRead(X_MAX_PIN) && kroka > 0) {
@@ -99,4 +98,9 @@ void loop() {
   digitalWrite(Y_STEP_PIN, LOW);
   digitalWrite(Z_STEP_PIN, LOW);
   delay(1);
+
+  if(kroka == 0 && krokb == 0 && krokc == 0 && czy_mam_odpowiedziec == 1) {
+    Serial.println("ok");
+    czy_mam_odp = 0;
+  }
 }
