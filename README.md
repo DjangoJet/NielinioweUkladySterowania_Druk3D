@@ -2,9 +2,9 @@
 
 Naszym zadaniem było napisanie programu do obsługi drukarki 3D, oraz napisanie programu generującego zadany ruch tej drukarki.
 
-# Urządzenie
+# Użądzenie
 
-Drukarką urzytą do testów jest **Kossel linear plus** firmy **Anycubic**. Na zajęciach urzywana była starsza wersja tej drukarki, ale ponieważ mamy dostęp do nowszej wersji to postanowiliśmy pisać program własnie na tej. Nowsza wersja różni się między innymi łożyskami na ramie do przesuwania głowicą, oraz końcówką do auto levelingu, która bardzo ułatwia kalibracje drukarki.
+Drukarką użytą do testów jest **Kossel linear plus** firmy **Anycubic**. Na zajęciach używana była starsza wersja tej drukarki, ale ponieważ mamy dostęp do nowszej wersji to postanowiliśmy pisać program właśnie na tej. Nowsza wersja różni się między innymi łożyskami na ramie do przesuwania głowicą, oraz końcówką do auto levelingu, która bardzo ułatwia kalibracje drukarki.
 
 # Arduino
 
