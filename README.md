@@ -14,9 +14,9 @@ Sterownikiem drukarki jest klon Arduino MEGA. Do pisania programu posłużyło �
 
 Komunikacja z drukarką odbywa się za pomocą **serialportu**, na częstotlimości 115200. Dane do drukarki na temat ruch są przesyłane w następującej formie:
 $$
-a \quad 'krokx' \quad b \quad 'kroky' \quad c \quad 'krokz'
+a \quad 'krokx' \quad b \quad 'kroky' \quad c \quad 'krokz \quad 'kroke'
 $$
-gdzie zmienne krok mówią o ilości kroków do wykonania, dla konkretnego silnika.
+gdzie zmienne krok mówią o ilości kroków do wykonania, dla konkretnego silnika oraz ilości kroków dla extrudera.
 
 ## Ruch silników krokowych
 
