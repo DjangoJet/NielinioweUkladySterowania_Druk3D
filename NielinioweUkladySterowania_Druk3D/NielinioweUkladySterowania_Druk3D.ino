@@ -168,32 +168,41 @@ void receiveData() {
 }
 
 void moveMotors() {
-  if(!digitalRead(X_MAX_PIN) && kroka > 0) {
-    digitalWrite(X_STEP_PIN, HIGH);      
-    kroka--;
-  }
- 
-  if (!digitalRead(Y_MAX_PIN) && krokb > 0) {
-    digitalWrite(Y_STEP_PIN, HIGH);
-    krokb--;
-  }
+  
+  while(!(kroka == 0 && krokb == 0 && krokc == 0 && kroke == 0))
+  {
+      if(!digitalRead(X_MAX_PIN) && kroka > 0) {
+        digitalWrite(X_STEP_PIN, HIGH);      
+        kroka--;
+      }
+     
+      if (!digitalRead(Y_MAX_PIN) && krokb > 0) {
+        digitalWrite(Y_STEP_PIN, HIGH);
+        krokb--;
+      }
+        
+      if (!digitalRead(Z_MAX_PIN) && krokc > 0) {
+        digitalWrite(Z_STEP_PIN, HIGH);
+        krokc--;
+      }
     
-  if (!digitalRead(Z_MAX_PIN) && krokc > 0) {
-    digitalWrite(Z_STEP_PIN, HIGH);
-    krokc--;
-  }
-
-  if (kroke > 0) {
-    digitalWrite(E0_STEP_PIN, HIGH);
-    kroke--;
-  }
+      if (kroke > 0) {
+        digitalWrite(E0_STEP_PIN, HIGH);
+        kroke--;
+      }
+        
+      delay(1);
+      digitalWrite(X_STEP_PIN, LOW);
+      digitalWrite(Y_STEP_PIN, LOW);
+      digitalWrite(Z_STEP_PIN, LOW);
+      digitalWrite(E0_STEP_PIN, LOW);
+      delay(1);
     
-  delay(1);
-  digitalWrite(X_STEP_PIN, LOW);
-  digitalWrite(Y_STEP_PIN, LOW);
-  digitalWrite(Z_STEP_PIN, LOW);
-  digitalWrite(E0_STEP_PIN, LOW);
-  delay(1);
+      if(kroka == 0 && krokb == 0 && krokc == 0 && kroke == 0 && czy_mam_odp == 1) {
+        Serial.println("ok");
+        czy_mam_odp = 0;
+      }
+  }
 }
 
 void finishMove() {
